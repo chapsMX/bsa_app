@@ -24,12 +24,23 @@ export default function NewGameweekPage() {
   });
 
   useEffect(() => {
-    // TODO: Implement fetch seasons endpoint
-    // For now, we'll use mock data
-    setSeasons([
-      { id: 1, name: 'NFL 2024', leagueName: 'NFL' },
-      { id: 2, name: 'Premier League 2024-25', leagueName: 'Premier League' },
-    ]);
+    const fetchSeasons = async () => {
+      try {
+        const response = await fetch('/api/seasons');
+        if (response.ok) {
+          const seasonsData = await response.json();
+          setSeasons(seasonsData.map((season: any) => ({
+            id: season.id,
+            name: season.name,
+            leagueName: season.leagueName,
+          })));
+        }
+      } catch (error) {
+        console.error('Error fetching seasons:', error);
+      }
+    };
+
+    fetchSeasons();
   }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {

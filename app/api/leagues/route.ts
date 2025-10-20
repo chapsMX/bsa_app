@@ -15,7 +15,7 @@ export async function GET() {
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { name, slug, allowsDraws = false } = body;
+    const { name, slug, allowsDraws = false, isActive = true } = body;
 
     if (!name || !slug) {
       return NextResponse.json({ error: 'Name and slug are required' }, { status: 400 });
@@ -25,6 +25,7 @@ export async function POST(request: NextRequest) {
       name,
       slug,
       allowsDraws,
+      isActive,
       createdBy: 1, // TODO: Get from auth context
       updatedBy: 1,
     }).returning();
