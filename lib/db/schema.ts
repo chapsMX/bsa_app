@@ -1,5 +1,5 @@
 // lib/db/schema.ts
-import { pgTable, serial, varchar, timestamp, boolean, integer, decimal, jsonb, /* unique, */ text } from 'drizzle-orm/pg-core';
+import { pgTable, serial, varchar, timestamp, boolean, integer, decimal, jsonb, text } from 'drizzle-orm/pg-core';
 import { relations } from 'drizzle-orm';
 
 // 1. Leagues table
