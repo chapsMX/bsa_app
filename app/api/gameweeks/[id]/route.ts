@@ -5,10 +5,11 @@ import { eq } from 'drizzle-orm';
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-    const gameweekId = parseInt(params.id);
+    const { id } = await params;
+    const gameweekId = parseInt(id);
 
     // Get gameweek details
     const gameweek = await db
@@ -65,10 +66,11 @@ export async function GET(
 
 export async function PUT(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-    const gameweekId = parseInt(params.id);
+    const { id } = await params;
+    const gameweekId = parseInt(id);
     const body = await request.json();
 
     const updatedGameweek = await db

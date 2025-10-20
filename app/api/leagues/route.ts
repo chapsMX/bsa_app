@@ -1,7 +1,7 @@
 // app/api/leagues/route.ts
 import { NextRequest, NextResponse } from 'next/server';
 import { db, leagues } from '@/lib/db';
-import { eq } from 'drizzle-orm';
+/* import { eq } from 'drizzle-orm'; */
 
 export async function GET() {
   try {
