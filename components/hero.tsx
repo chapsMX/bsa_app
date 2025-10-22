@@ -16,6 +16,8 @@ export function Hero() {
 
   return (
     <section className="relative flex items-center justify-center overflow-hidden bg-gradient-to-br from-background via-muted/30 to-background">
+      {/* Background Image */}
+      <div className="absolute inset-0 bg-[url('/bg_01.png')] opacity-25 bg-cover bg-center" />
 
       <div className="container mx-auto px-4 py-16 relative z-10 w-[90%]">
         <div className="text-center space-y-8 md:space-y-10">
@@ -62,9 +64,13 @@ export function Hero() {
 
           {/* Built on Base Logo - Centered */}
           <div className="pt-8 flex justify-center opacity-0 animate-fade-in animation-delay-400">
-            <div className="text-lg font-semibold text-primary">
-              Built on Base
-            </div>
+            <Image
+              src="/svg/baseBlue.svg"
+              alt="Built on Base"
+              width={160}
+              height={52}
+              priority
+            />
           </div>
         </div>
       </div>

@@ -19,9 +19,13 @@ export function Footer() {
             </p>
             {/* Built on Base Logo */}
             <div className="mt-4">
-              <div className="text-sm font-semibold text-primary">
-                Built on Base
-              </div>
+              <Image
+                src="/svg/baseBlack.svg"
+                alt="Built on Base"
+                width={120}
+                height={40}
+                className="dark:invert"
+              />
             </div>
           </div>
 
