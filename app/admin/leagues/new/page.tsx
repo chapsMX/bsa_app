@@ -28,7 +28,7 @@ export default function NewLeaguePage() {
       });
 
       if (response.ok) {
-        const newLeague = await response.json();
+        await response.json();
         router.push('/admin');
       } else {
         const error = await response.json();

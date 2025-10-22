@@ -29,7 +29,7 @@ export default function NewGameweekPage() {
         const response = await fetch('/api/seasons');
         if (response.ok) {
           const seasonsData = await response.json();
-          setSeasons(seasonsData.map((season: any) => ({
+          setSeasons(seasonsData.map((season: { id: number; name: string; leagueName: string }) => ({
             id: season.id,
             name: season.name,
             leagueName: season.leagueName,

@@ -1,17 +1,14 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 import Image from 'next/image'
 import type { NFLGame } from '@/lib/types'
-import { Card } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { cn } from '@/lib/utils'
 import {
-  formatTimeUntilStart,
-  getGameStatusColor,
   arePicksLocked,
 } from '@/lib/utils/game-utils'
-import { Clock, Lock, TrendingUp } from 'lucide-react'
+import { Lock, TrendingUp } from 'lucide-react'
 
 interface GameCardProps {
   game: NFLGame
@@ -26,17 +23,12 @@ export function GameCard({
   onSelectTeam,
   disabled = false,
 }: GameCardProps) {
-  const [timeUntilStart, setTimeUntilStart] = useState(formatTimeUntilStart(game))
   const isLocked = arePicksLocked(game)
   const isDisabled = disabled || isLocked
 
-  // Update countdown every minute
+  // Update countdown every minute - currently not displayed but could be used in the future
   useEffect(() => {
-    const interval = setInterval(() => {
-      setTimeUntilStart(formatTimeUntilStart(game))
-    }, 60000)
-
-    return () => clearInterval(interval)
+    // Placeholder for future countdown display functionality
   }, [game])
 
   const TeamButton = ({ isHome }: { isHome: boolean }) => {
